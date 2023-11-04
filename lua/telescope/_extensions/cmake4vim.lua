@@ -30,6 +30,7 @@ local select_target = function(opts)
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
         vim.g.cmake_build_target = selection[1]
+        vim.cmd('CMakeBuild')
       end)
       return true
     end,
@@ -55,6 +56,7 @@ local select_build_type = function(opts)
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
         vim.g.cmake_build_type = selection[1]
+        vim.cmd('CMakeResetAndReload')
       end)
       return true
     end,
